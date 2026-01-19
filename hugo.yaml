@@ -39,7 +39,7 @@ markup:
 
 params:
   title: "Gaurav Harsha"
-  description: Text about my cool site
+  description: Research Area Specialist at University of Michigan
   # staticPath: ""  # The path to serve the static files from
   favicon: "/laptop-code_poly.svg"
 

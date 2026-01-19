@@ -1,0 +1,64 @@
+{{ if .Site.Params.publications.enable | default false }}
+<section id="publications" class="py-5">
+    <div class="container">
+        <h3 class="text-center">{{ .Site.Params.publications.title | default "Publications" }}</h3>
+        <div class="row justify-content-center py-5">
+            {{ $indexMenu := .Site.Params.publications.index }}
+            {{ range $index, $element := .Site.Params.publications.items }}
+            <div class="col-12 p-0">
+                <div class="row row align-items-center justify-content-center m-1 mb-4">
+                    {{ if $indexMenu }}
+                    <div class="col-md-1 text-center me-2 p-0 d-none d-md-block">
+                        <div class="py-2">
+                            <span class="index shadow-lg">
+                                {{ add $index 1 }}
+                            </span>
+                        </div>
+                    </div>
+                    {{ end }}
+
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="float-end">
+                                    <small>{{ .year }}</small>
+                                </div>
+                                <h5 class="card-title">{{ .title }}</h5>
+                                
+                                {{ if .journal.url }}
+                                <a href="{{ .journal.url }}" target="_blank">
+                                    <h6>
+                                    {{ .journal.name }}
+                                    </h6>
+                                </a>
+                                {{ else }}
+                                <h6>{{ .journal.name }}</h6>
+                                {{ end }}
+
+                                {{ if .authors }}
+                                <div class="py-1">
+                                    <small><i>{{ .authors }}</i></small>
+                                </div>
+                                {{ end }}
+
+                                <div class="py-1 publication-content">
+                                    {{ .abstract | markdownify}}
+                                </div>
+
+                                {{ if .doi }}
+                                <div class="py-1">
+                                    <a href="https://doi.org/{{ .doi }}" class="btn btn-sm" target="_blank">
+                                        DOI: {{ .doi }}
+                                    </a>
+                                </div>
+                                {{ end }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+{{ end }}

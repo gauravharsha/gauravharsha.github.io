@@ -74,7 +74,6 @@ params:
   # DEFAULT THEME COLORS
   color:
     textColor: "#343a40"
-    textColor: "#343a40"
     secondaryTextColor: "#6c757d"
     textLinkColor: "#007bff"
     backgroundColor: "#eaedf0"

@@ -23,9 +23,9 @@ menu:
       url: /cv/
       weight: 4
 
-#services:
-  #googleAnalytics:
-    #id: G-MEASUREMENT_ID
+services:
+  googleAnalytics:
+    id: G-H89M7295PJ
   #disqus:
     #shortname: your-disqus-shortname
 

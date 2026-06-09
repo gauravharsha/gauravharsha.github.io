@@ -145,7 +145,7 @@ params:
       I am particularly interested in materials where thermal effects, disorder, and relativity
       play a crucial role in determining their properties.
 
-      I am one of the core developers for the [GREEN](https://green-phys.org) software package,
+      I am the lead developer for the [GREEN](https://green-phys.org) software package,
       where I lead implementations of new methods, optimize performance for modern HPC
       architectures, and train new users in its application. 
     image: /images/gh_white.jpg
@@ -155,9 +155,9 @@ params:
     button:
       enable: true
       name: "Resume"
-      url: "/gh_cv_jan2026.pdf"
-      download: true
-      newPage: false
+      url: "/gauravharsha_CV_june2026.pdf"
+      download: false
+      newPage: true
     socialLinks:
       fontAwesomeIcons:
         - icon: fas fa-graduation-cap
@@ -166,8 +166,8 @@ params:
           url: https://github.com/gauravharsha
         - icon: fab fa-linkedin
           url: https://www.linkedin.com/in/gaurav-harsha-61026874/
-        - icon: fab fa-x-twitter
-          url: https://x.com/gaurav_harsha
+        # - icon: fab fa-x-twitter
+        #   url: https://x.com/gaurav_harsha
       # customIcons:
       #   - icon: /fav.png
       #     url: "https://example.com"
@@ -281,26 +281,21 @@ params:
     enable: true
     title: "News"
     items:
+      - title: "Jun 2026 - Talk at ICQC!"
+        content: |-
+          Presented our latest work on the application of first-principles relativistic GW method for discovering new
+          topological phases in correlated materials.
+        url: https://www.icqc2026.org/home#speakers
+      - title: "May 2026 - New Preprint!"
+        content: |-
+          Led by Dr. Ming Wen, this work extends of Bethe-Salpeter-Equation (BSE) to utilize fully self-consistent GW.
+          Our approach out-performs existing BSE approaches for studying neutral excitations in molecules.
+        url: https://arxiv.org/abs/2604.22187
       - title: "Dec 2025 - New Preprint!"
         content: |-
           on application of first-principles relativistic GW method for discovering new
           topological phases in alpha-Sn under strain.
         url: https://arxiv.org/abs/2511.22740
-      - title: "Jul 2025 - Best Poster Award"
-        content: |-
-          for "Describing Disorder and Correlation - Coherent Potential Approximation
-          with Bloch Gaussians" at the conference New Challenges for Ab Initio Theory in Molecular Sciences,
-          held from July 1-5, 2025 in Warsaw, Poland.
-        url: https://ncaitms.chem.uw.edu.pl/en/
-      # - title: JCP Editor's Choice (2019)
-      #   content: 
-      #     for the paper "Thermmofield theory for finite-temperature quantum chemistry",
-      #     J. Chem. Phys. 150, 154109 (2019).
-      #   url: https://doi.org/10.1063/1.5089560
-      # - title: Institute Gold Medal (2016)
-      #   content: Awarded for outstanding academic performance at Indian Institute of Space Science and Technology (II
-      # - title: Director's Gold Medal (2016)
-      #   content: Awarded for best all-round performance at Indian Institute of Space Science and Technology (
 
   # projects
   projects:

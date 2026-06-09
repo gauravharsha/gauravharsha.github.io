@@ -6,6 +6,14 @@ publications:
   enable: true
   index: false
   items:
+    - title: "Dynamically Corrected Bethe-Salpeter Equation Solver for Self-consistent GW Reference on the Matsubara Frequency Axis"
+      year: 2026
+      authors: "Ming Wen, **Gaurav Harsha**, and Dominika Zgid"
+      brief: |-
+        **Summary**: We present BSE@scGW, a Bethe–Salpeter framework built on a self-consistent GW reference and augmented with a lightweight dynamical screening correction. The method delivers substantially improved excitation energies over conventional BSE approaches, achieving near-benchmark accuracy for singlet and triplet excitations while retaining the efficiency of a static eigenvalue formulation.
+      doi: ""
+      arxiv: "2604.22187"
+
     - title: "Discovering topological phases in gray-Tin"
       year: 2025
       authors: "**Gaurav Harsha**, Selina Dirnb\u00F6ck, Emanuel Gull, Vojt\u011Bch Vl\u010Dek and Dominika Zgid"

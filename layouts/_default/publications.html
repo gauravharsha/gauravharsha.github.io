@@ -1,5 +1,5 @@
 {{ define "head" }}
-<meta name="description" content={{ .Site.Params.description }}>
+<meta name="description" content="{{ .Description | default .Site.Params.description }}">
 <link rel="stylesheet" href="{{ .Site.Params.staticPath }}/css/index.css" media="all">
 
 <!-- fontawesome -->
@@ -95,84 +95,39 @@
   {{ if .Params.publications.enable }}
   <section id="publications" class="py-5">
     <div class="container">
-      <h3 class="text-center">{{ .Params.publications.title | default "Publications" }}</h3>
-      <div class="row justify-content-center py-5">
-        {{ $sorted := sort .Params.publications.items "year" "desc" }}
-        {{ $currentYear := "" }}
-        {{ $index := 0 }}
-        
-        {{ range $sorted }}
-          {{ if ne .year $currentYear }}
-            <div class="col-12 p-0 mt-4">
-              <h5 class="text-center mb-4">{{ .year }}</h5>
-            </div>
-            {{ $currentYear = .year }}
-          {{ end }}
-          
-          {{ $index = add $index 1 }}
-          <div class="col-12 p-0">
-            <div class="row row align-items-center justify-content-center m-1 mb-4">
-              {{ if .Params.publications.index }}
-              <div class="col-md-1 text-center me-2 p-0 d-none d-md-block">
-                <div class="py-2">
-                  <span class="index shadow-lg">
-                    {{ $index }}
-                  </span>
-                </div>
-              </div>
-              {{ end }}
-
-              <div class="col-md-9">
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">{{ .title }}</h5>
-                    
-                    {{ if .authors }}
-                    <div class="py-1">
-                      <small><i>{{ .authors | markdownify }}</i></small>
-                    </div>
-                    {{ end }}
-
-                    {{ if or .abstract .brief }}
-                    <div class="py-1 publication-content">
-                      {{ (or .abstract .brief "") | markdownify}}
-                    </div>
-                    {{ end }}
-
-                    {{ if or .journal .arxiv .website }}
-                    <div class="py-1">
-                      {{ if .journal }}
-                      {{ if .journal.url }}
-                      <a href="{{ .journal.url }}" class="btn btn-sm btn-outline-primary" style="border-width: 2px; font-weight: 500;" target="_blank">
-                        {{ .journal.name }}
-                      </a>
-                      {{ else }}
-                      <span class="btn btn-sm btn-outline-primary disabled" style="border-width: 2px; font-weight: 500;">
-                        {{ .journal.name }}
-                      </span>
-                      {{ end }}
-                      {{ end }}
-                      
-                      {{ if .arxiv }}
-                      <a href="https://arxiv.org/abs/{{ .arxiv }}" class="btn btn-sm btn-outline-primary" style="border-width: 2px; font-weight: 500;" target="_blank">
-                        arXiv
-                      </a>
-                      {{ end }}
-                      
-                      {{ if .website }}
-                      <a href="{{ .website }}" class="btn btn-sm" target="_blank">
-                        WEBSITE
-                      </a>
-                      {{ end }}
-                    </div>
-                    {{ end }}
-                  </div>
-                </div>
-              </div>
-            </div>
+      <h1 class="text-center">Publications</h1>
+      <p class="text-center">Journal articles and preprints · <a href="https://scholar.google.com/citations?user=4zxluS4AAAAJ&amp;hl=en">Google Scholar</a></p>
+      {{ $items := sort .Params.publications.items "year" "desc" }}
+      {{ range slice "Preprints" "Journal articles" }}
+      {{ $group := . }}
+      <h2 class="mt-5 mb-4 text-center">{{ $group }}</h2>
+      {{ range $items }}
+      {{ if or (and (eq $group "Preprints") (not .journal)) (and (eq $group "Journal articles") .journal) }}
+      <article class="card mb-4 mx-auto" style="max-width: 960px">
+        <div class="card-body">
+          <p class="mb-2"><small>{{ .year }} · {{ if .journal }}Journal article{{ else }}Preprint{{ end }}</small></p>
+          <h3 class="card-title h5">{{ .title }}</h3>
+          <p>{{ .authors | markdownify }}</p>
+          {{ with .history }}<p><small>{{ . }}</small></p>{{ end }}
+          {{ with (or .brief .abstract) }}<div class="publication-content">{{ . | markdownify }}</div>{{ end }}
+          <div class="mt-3">
+            {{ with .journal }}<a href="{{ .url }}" class="btn btn-sm btn-outline-primary">{{ .name }}</a>{{ end }}
+            {{ with .arxiv }}<a href="https://arxiv.org/abs/{{ . }}" class="btn btn-sm btn-outline-primary">arXiv</a>{{ end }}
+            {{ $authors := replaceRE ",? and " ", " (replace .authors "**" "") }}
+            {{ $authors = replace $authors ", " " and " }}
+            {{ $key := printf "harsha%s" (replace .arxiv "." "") }}
+            {{ $bib := printf "@misc{%s,\n  title = {{%s}},\n  author = {%s},\n  year = {%v},\n  eprint = {%s},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/%s}\n}\n" $key .title $authors .year .arxiv .arxiv }}
+            {{ if .journal }}
+              {{ $bib = printf "@article{%s,\n  title = {{%s}},\n  author = {%s},\n  year = {%v},\n  journal = {%s},\n  volume = {%s},\n  pages = {%s},\n  doi = {%s}\n}\n" $key .title $authors .year .citation.journal .citation.volume .citation.pages (replace .journal.url "https://doi.org/" "") }}
+            {{ end }}
+            {{ $resource := resources.FromString (printf "citations/%s.bib" $key) $bib }}
+            <a href="{{ $resource.RelPermalink }}" download class="btn btn-sm btn-outline-primary" aria-label="Download BibTeX for {{ .title }}">BibTeX</a>
           </div>
-        {{ end }}
-      </div>
+        </div>
+      </article>
+      {{ end }}
+      {{ end }}
+      {{ end }}
     </div>
   </section>
   {{ end }}

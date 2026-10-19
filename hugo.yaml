@@ -16,12 +16,24 @@ enableRobotsTXT: true
 
 menu:
   main:
+    - name: News
+      url: /#achievements
+      weight: 1
+    - name: Research
+      url: /#research
+      weight: 2
+    - name: Software
+      url: /#projects
+      weight: 3
     - name: Publications
       url: /publications/
-      weight: 3
-    - name: About
-      url: /cv/
       weight: 4
+    - name: About / CV
+      url: /cv/
+      weight: 5
+    - name: Contact
+      url: /cv/#contact
+      weight: 6
 
 services:
   googleAnalytics:
@@ -39,7 +51,9 @@ markup:
 
 params:
   title: "Gaurav Harsha"
-  description: Research Area Specialist at University of Michigan
+  description: Gaurav Harsha develops electronic-structure methods and high-performance scientific software for quantum materials at the University of Michigan.
+  images:
+    - /images/gh_white.jpg
   # staticPath: ""  # The path to serve the static files from
   favicon: "/laptop-code_poly.svg"
 
@@ -128,34 +142,36 @@ params:
       disableAbout: true
       disableExperience: true
       disableEducation: true
-      disableProjects: false
-      disableAchievements: false
-      disableContact: false
+      disableProjects: true
+      disableAchievements: true
+      disableContact: true
 
   # Hero
   hero:
     enable: true
     # intro: "Hi, my name is"
     title: "Gaurav Harsha"
-    subtitle: "Research Area Specialist"
+    subtitle: "Research Area Specialist Senior"
     content: |-
+      **Computational physicist · Scientific software & HPC**
+
       Department of Chemistry, University of Michigan, Ann Arbor
 
-      My research focuses on electronic structure theory, many-body methods, and open-source software for quantum materials.
-      I am particularly interested in materials where thermal effects, disorder, and relativity
-      play a crucial role in determining their properties.
+      I develop many-body methods and open-source software to understand how temperature,
+      disorder, and relativity shape quantum materials. My work connects electronic-structure
+      theory with predictive simulations, from molecules to solids.
 
       I am the lead developer for the [GREEN](https://green-phys.org) software package,
       where I lead implementations of new methods, optimize performance for modern HPC
       architectures, and train new users in its application. 
     image: /images/gh_white.jpg
     bottomImage:
-      enable: true
+      enable: false
     # roundImage: true # Make hero image circular | default false
     button:
       enable: true
-      name: "Resume"
-      url: "/gauravharsha_CV_june2026.pdf"
+      name: "Academic CV"
+      url: "/files/Gaurav_Harsha_CV.pdf"
       download: false
       newPage: true
     socialLinks:
@@ -186,7 +202,10 @@ params:
       the core-developer for [GREEN](https://green-phys.org) software ecosystem, implementing methods that
       bridge first-principles theory with predictive materials modeling.
 
-      For complete CV, [see here](/gauravharsha_CV_june2026.pdf).
+      <div class="cv-downloads d-flex flex-wrap gap-3 mt-4">
+        <a class="btn" href="/files/Gaurav_Harsha_CV.pdf" download>Academic CV (PDF)</a>
+        <a class="btn" href="/files/Gaurav_Harsha_Resume.pdf" download>Industry résumé (PDF)</a>
+      </div>
 
   experience:
     enable: true
@@ -195,7 +214,7 @@ params:
       - company: "University of Michigan"
         companyUrl: "https://umich.edu"
         jobs:
-          - name: "Research Area Specialist"
+          - name: "Research Area Specialist Senior"
             date: "Aug 2025 - present"
             content: |-
               Core developer for the Green-Phys software package,
@@ -280,23 +299,6 @@ params:
   achievements:
     enable: true
     title: "News"
-    items:
-      - title: "Jun 2026 - Talk at ICQC!"
-        content: |-
-          Presented our latest work on the application of first-principles relativistic GW method for discovering new
-          topological phases in correlated materials.
-        url: https://www.icqc2026.org/home#speakers
-      - title: "May 2026 - New Preprint!"
-        content: |-
-          Led by Dr. Ming Wen, this work extends of Bethe-Salpeter-Equation (BSE) to utilize fully self-consistent GW.
-          Our approach out-performs existing BSE approaches for studying neutral excitations in molecules.
-        url: https://arxiv.org/abs/2604.22187
-      - title: "Dec 2025 - New Preprint!"
-        content: |-
-          on application of first-principles relativistic GW method for discovering new
-          topological phases in alpha-Sn under strain.
-        url: https://arxiv.org/abs/2511.22740
-
   # projects
   projects:
     enable: true
@@ -309,6 +311,10 @@ params:
             - [green-mbtools](https://Green-Phys.org/green-mbtools) - initialization and post-processing tools for many-body calculations in green-mbpt
             - [green-gpu](https://Green-Phys.org/green-gpu) - GPU-accelerated implementations for the GW method.
             - [green-mbpt](https://github.com/Green-Phys/green-mbpt) - first-principles GW and GF2 for solid-state systems
+
+          I implement many-body methods and GPU acceleration, improve performance,
+          and train users across the group and collaborating institutions.
+          [Software paper](https://doi.org/10.1016/j.cpc.2024.109380).
         # image: /images/green.png
         featured:
           name: Website
@@ -345,12 +351,14 @@ params:
 
       - title: Finite-temperature CCSD
         content: |-
-          Hybrid Python-Fortran implementation of finite-temperature coupled cluster singles and doubles
-          (FT-CCSD) method for molecular systems, based on the work:
+          I developed **TFD-CCSD** and **CANON-TFD**, Python/Fortran implementations
+          of thermal coupled cluster and perturbation theory. These tools connect
+          wave-function methods with finite-temperature ensembles.
 
-          *G. Harsha, T. M. Henderson, and G. E. Scuseria,
-          "Finite-temperature coupled cluster theories for extended systems",
-          J. Chem. Theory Comput. 2019, 15, 6127-6136.*
+          - [TFD-CCSD](https://github.com/gauravharsha/tfd-ccsd): thermofield coupled cluster
+          - [CANON-TFD](https://github.com/gauravharsha/canon-tfd): canonical-ensemble methods
+          - Related papers: [thermal coupled cluster (2019)](https://doi.org/10.1021/acs.jctc.9b00744)
+            and [canonical thermal averages (2020)](https://doi.org/10.1063/5.0022702)
         # image: /images/projects/profile2.jpg
         # featured:
         #   name: Demo V2

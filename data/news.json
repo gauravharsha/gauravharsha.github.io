@@ -1,0 +1,32 @@
+[
+  {
+    "date": "2026-08-06",
+    "title": "BSE paper published in JCTC",
+    "summary": "Our work led by Ming Wen combines a self-consistent GW reference with a dynamical screening correction to improve molecular excitation energies.",
+    "url": "https://doi.org/10.1021/acs.jctc.6c00887"
+  },
+  {
+    "date": "2026-06-09",
+    "title": "New quantum impurity solver preprint",
+    "summary": "Our collaboration led by Yang Yu combines Hamiltonian and diagrammatic methods to improve the accuracy and convergence of quantum impurity calculations.",
+    "url": "https://arxiv.org/abs/2606.11095"
+  },
+  {
+    "date": "2026-06-01",
+    "title": "Talk at ICQC 2026",
+    "summary": "I presented our work on correlated topological materials using first-principles self-consistent GW at the International Congress on Quantum Chemistry in Berkeley.",
+    "url": "https://www.icqc2026.org/home#speakers"
+  },
+  {
+    "date": "2025-07-01",
+    "title": "Best Poster Award in Warsaw",
+    "summary": "My poster on describing disorder and correlation with coherent potential approximation and Bloch Gaussian orbitals received the Best Poster Award at New Challenges for Ab-initio Theory in Molecular Sciences.",
+    "url": "/cv/#honors"
+  },
+  {
+    "date": "2025-12-01",
+    "title": "Preprint on topological phases in α-Sn",
+    "summary": "Our initial preprint explored strain-tunable topological phases in gray tin using fully self-consistent relativistic GW.",
+    "url": "https://arxiv.org/abs/2511.22740v1"
+  }
+]

@@ -1,0 +1,18 @@
+{{ define "head" }}
+<meta name="description" content="{{ .Description }}">
+<link rel="stylesheet" href="{{ "css/portfolio.css" | relURL }}">
+{{ end }}
+{{ define "title" }}{{ .Title }} | {{ .Site.Title }}{{ end }}
+{{ define "main" }}
+<main class="portfolio-section py-5" id="content"><div class="container portfolio-prose">
+  <h1>News</h1>
+  <div class="news-list">
+    {{ range sort .Site.Data.news "date" "desc" }}
+    <article class="news-item">
+      <time datetime="{{ substr .date 0 7 }}">{{ time.Format "Jan 2006" .date }}</time>
+      <div><h2><a href="{{ .url }}">{{ .title }}</a></h2><p>{{ .summary }}</p></div>
+    </article>
+    {{ end }}
+  </div>
+</div></main>
+{{ end }}

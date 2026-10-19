@@ -1,0 +1,13 @@
+<section id="achievements" class="portfolio-section py-5" aria-labelledby="news-heading">
+  <div class="container">
+    <div class="section-heading"><h2 id="news-heading">Recent news</h2><a href="{{ "news/" | relURL }}">All news →</a></div>
+    <div class="news-list">
+      {{ range first 4 (sort .Site.Data.news "date" "desc") }}
+      <article class="news-item">
+        <time datetime="{{ substr .date 0 7 }}">{{ time.Format "Jan 2006" .date }}</time>
+        <div><h3><a href="{{ .url }}">{{ .title }}</a></h3><p>{{ .summary }}</p></div>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>

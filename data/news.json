@@ -1,5 +1,11 @@
 [
   {
+    "date": "2026-10-20",
+    "title": "Talk at the University of Georgia",
+    "summary": "I presented a talk on “Describing electronic topology using interacting Green’s function” at the Center for Simulational Physics, University of Georgia.",
+    "url": "/news/"
+  },
+  {
     "date": "2026-08-06",
     "title": "BSE paper published in JCTC",
     "summary": "Our work led by Ming Wen combines a self-consistent GW reference with a dynamical screening correction to improve molecular excitation energies.",

@@ -1,0 +1,36 @@
+#hero { min-height: auto; }
+#hero h2 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); opacity: 1; color: var(--text-secondary-color); }
+.portfolio-section { color: var(--text-color); scroll-margin-top: 5rem; }
+.portfolio-section .section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.portfolio-section h2 { font-size: 1.8rem; }
+.portfolio-section a { color: var(--text-link-color); }
+.portfolio-section a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+.portfolio-section .news-list { border-top: 1px solid var(--text-secondary-color, #858585); }
+.portfolio-section .news-item { display: grid; grid-template-columns: 7rem 1fr; gap: 1.25rem; padding: 1.25rem 0; border-bottom: 1px solid var(--text-secondary-color, #858585); }
+.portfolio-section .news-item h3, .portfolio-section .news-item h2 { font-size: 1.1rem; margin: 0 0 .5rem; }
+.portfolio-section .news-item p { margin: 0; }
+.portfolio-section time { color: var(--text-secondary-color); font-size: .9rem; }
+.research-intro { max-width: 48rem; margin-top: 1.5rem; margin-bottom: 1rem; }
+#research { scroll-margin-top: 5rem; }
+#research .research-figure { margin: 0; padding: 1rem 1rem 0; }
+#research .research-figure svg, #research .research-figure img { display: block; width: 100%; height: 190px; object-fit: contain; color: var(--text-color); }
+#research .research-figure svg text { fill: currentColor; font-family: sans-serif; font-size: 13px; }
+#research .research-figure svg .accent { stroke: var(--primary-color); }
+#research .card-footer .btn { transition: none; border-radius: .5rem !important; border-color: var(--primary-color) !important; }
+#research .card-footer .btn:focus { box-shadow: none !important; }
+#research .card-footer .btn:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.cv-section { scroll-margin-top: 5rem; }
+.cv-section h3 { color: var(--text-secondary-color); }
+.cv-section .card, .cv-section .card * { background-color: var(--secondary-color); }
+.cv-section .card { border-radius: 1.5rem; box-shadow: 0px 8px 56px rgb(15 80 100 / 16%); border: 2px solid var(--text-secondary-color); transition: box-shadow .2s linear, border-color .2s linear; }
+.cv-section .card-body { border-radius: 1.5rem; padding: 2rem; }
+.cv-section .card:hover { box-shadow: 0 4px 11px rgb(15 80 100 / 16%); border-color: var(--primary-color); }
+.cv-section .card a { color: var(--text-link-color); text-decoration: none; }
+.cv-section li { margin-bottom: .75rem; }
+.portfolio-prose { max-width: 920px; }
+.portfolio-prose h2 { margin-top: 2.5rem; scroll-margin-top: 5rem; }
+@media (max-width: 768px) { .cv-section .card-body { padding: 2rem 1rem; } }
+@media (max-width: 575px) { .portfolio-section .news-item { grid-template-columns: 1fr; gap: .5rem; } }
+
+#about .cv-downloads .btn { border: 1px solid var(--primary-color); border-radius: .5rem; color: var(--text-color); text-decoration: none; }
+#about .cv-downloads .btn:focus-visible { outline: 2px solid var(--primary-color); outline-offset: 3px; }

@@ -18,6 +18,7 @@
 #research .research-figure svg .accent { stroke: var(--primary-color); }
 #research .card-footer .btn { transition: none; border-radius: .5rem !important; border-color: var(--primary-color) !important; }
 #research .card-footer .btn:focus { box-shadow: none !important; }
+#research .card-footer .btn:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
 .cv-section { scroll-margin-top: 5rem; }
 .cv-section h3 { color: var(--text-secondary-color); }
 .cv-section .card, .cv-section .card * { background-color: var(--secondary-color); }
